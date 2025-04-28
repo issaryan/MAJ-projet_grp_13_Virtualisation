@@ -1,0 +1,29 @@
+<div class="quiz-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Créer un nouveau quiz</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="createQuiz()">
+        <mat-form-field appearance="fill">
+          <mat-label>Titre du quiz</mat-label>
+          <input matInput [(ngModel)]="newQuiz.title" name="title" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Créer</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="quizzes-list">
+    <mat-card-header>
+      <mat-card-title>Quizzes disponibles</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let quiz of quizzes">
+          <h3 matLine>{{ quiz.title }}</h3>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
